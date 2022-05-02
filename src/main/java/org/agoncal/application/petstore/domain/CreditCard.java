@@ -7,7 +7,9 @@ import javax.persistence.Enumerated;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -19,6 +21,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Embeddable
+@NoArgsConstructor
+@AllArgsConstructor
 public class CreditCard {
 
     // ======================================
@@ -37,19 +41,6 @@ public class CreditCard {
     @NotNull
     @Size(min = 1, max = 5)
     private String creditCardExpDate;
-
-    // ======================================
-    // =            Constructors            =
-    // ======================================
-
-    public CreditCard() {
-    }
-
-    public CreditCard(String creditCardNumber, CreditCardType creditCardType, String creditCardExpDate) {
-        this.creditCardNumber = creditCardNumber;
-        this.creditCardType = creditCardType;
-        this.creditCardExpDate = creditCardExpDate;
-    }
 
     // ======================================
     // =   Methods hash, equals, toString   =

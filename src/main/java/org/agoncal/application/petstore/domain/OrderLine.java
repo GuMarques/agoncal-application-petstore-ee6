@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -15,6 +16,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class OrderLine {
 
     // ======================================
@@ -34,9 +36,6 @@ public class OrderLine {
     // ======================================
     // =            Constructors            =
     // ======================================
-
-    public OrderLine() {
-    }
 
     public OrderLine(Integer quantity, Item item) {
         this.quantity = quantity;

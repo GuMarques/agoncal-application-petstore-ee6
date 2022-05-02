@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ import java.util.List;
 @XmlRootElement
 @Getter
 @Setter
+@NoArgsConstructor
 public class Product {
 
     // ======================================
@@ -64,9 +66,6 @@ public class Product {
     // ======================================
     // =            Constructors            =
     // ======================================
-
-    public Product() {
-    }
 
     public Product(String name, String description, Category category) {
         this.name = name;

@@ -5,6 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
@@ -24,6 +25,7 @@ import java.util.List;
 })
 @Getter
 @Setter
+@NoArgsConstructor
 public class Order {
 
     // ======================================
@@ -60,9 +62,6 @@ public class Order {
     // ======================================
     // =            Constructors            =
     // ======================================
-
-    public Order() {
-    }
 
     public Order(Customer customer, CreditCard creditCard, Address deliveryAddress) {
         this.customer = customer;

@@ -4,7 +4,9 @@ import org.agoncal.application.petstore.constraint.NotEmpty;
 import org.agoncal.application.petstore.constraint.Price;
 
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -28,6 +30,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @Getter
 @Setter
+@NoArgsConstructor
 public class Item {
 
     // ======================================
@@ -65,9 +68,6 @@ public class Item {
     // ======================================
     // =            Constructors            =
     // ======================================
-
-    public Item() {
-    }
 
     public Item(String name, Float unitCost, String imagePath, Product product, String description) {
         this.name = name;

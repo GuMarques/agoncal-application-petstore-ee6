@@ -6,6 +6,7 @@ import org.agoncal.application.petstore.exception.ValidationException;
 
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -33,6 +34,7 @@ import java.util.GregorianCalendar;
 @XmlRootElement
 @Getter
 @Setter
+@NoArgsConstructor
 public class Customer implements Serializable {
 
     // ======================================
@@ -82,9 +84,6 @@ public class Customer implements Serializable {
     // ======================================
     // =            Constructors            =
     // ======================================
-
-    public Customer() {
-    }
 
     public Customer(String firstname, String lastname, String login, String password, String email, Address address) {
         this.firstname = firstname;
