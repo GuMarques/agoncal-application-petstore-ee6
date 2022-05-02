@@ -4,6 +4,10 @@ import org.agoncal.application.petstore.constraint.Email;
 import org.agoncal.application.petstore.constraint.Login;
 import org.agoncal.application.petstore.exception.ValidationException;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -27,6 +31,8 @@ import java.util.GregorianCalendar;
         @NamedQuery(name = Customer.FIND_ALL, query = "SELECT c FROM Customer c")
 })
 @XmlRootElement
+@Getter
+@Setter
 public class Customer implements Serializable {
 
     // ======================================
@@ -35,6 +41,7 @@ public class Customer implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Setter(value = AccessLevel.NONE)
     private Long id;
     @Column(unique = true, nullable = false, length = 10)
     @Login
@@ -61,6 +68,7 @@ public class Customer implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
     @Transient
+    @Setter(value = AccessLevel.NONE)
     private Integer age;
 
     // ======================================
@@ -133,83 +141,6 @@ public class Customer implements Serializable {
         // The password entered by the customer is not the same stored in database
         if (!pwd.equals(password))
             throw new ValidationException("Passwords don't match");
-    }
-
-    // ======================================
-    // =         Getters & setters          =
-    // ======================================
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-
-    public Address getHomeAddress() {
-        return homeAddress;
-    }
-
-    public void setHomeAddress(Address homeAddress) {
-        this.homeAddress = homeAddress;
-    }
-
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public Integer getAge() {
-        return age;
     }
 
     // ======================================

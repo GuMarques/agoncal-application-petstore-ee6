@@ -2,6 +2,10 @@ package org.agoncal.application.petstore.domain;
 
 import org.agoncal.application.petstore.constraint.NotEmpty;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -24,6 +28,8 @@ import java.util.List;
         @NamedQuery(name = Category.FIND_ALL, query = "SELECT c FROM Category c")
 })
 @XmlRootElement
+@Getter
+@Setter
 public class Category {
 
     // ======================================
@@ -32,6 +38,7 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Setter(value = AccessLevel.NONE)
     private Long id;
     @Column(nullable = false, length = 30)
     @NotNull
@@ -68,38 +75,10 @@ public class Category {
     // =         Getters & setters          =
     // ======================================
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public void addProduct(Product product) {
         if (products == null)
             products = new ArrayList<Product>();
         products.add(product);
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
     }
 
     // ======================================

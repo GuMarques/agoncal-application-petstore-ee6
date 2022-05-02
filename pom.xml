@@ -43,7 +43,7 @@
     </properties>
 
     <dependencyManagement>
-        <dependencies>
+        <dependencies>        
             <dependency>
                 <groupId>org.jboss.arquillian</groupId>
                 <artifactId>arquillian-bom</artifactId>
@@ -87,6 +87,11 @@
             <version>${version.jquery}</version>
         </dependency>
 
+        <dependency>
+        	<groupId>org.projectlombok</groupId>
+        	<artifactId>lombok</artifactId>
+        	<version>1.18.24</version>
+        </dependency>
     </dependencies>
 
     <profiles>

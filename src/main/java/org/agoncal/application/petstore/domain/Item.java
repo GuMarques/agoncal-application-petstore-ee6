@@ -3,6 +3,10 @@ package org.agoncal.application.petstore.domain;
 import org.agoncal.application.petstore.constraint.NotEmpty;
 import org.agoncal.application.petstore.constraint.Price;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -22,6 +26,8 @@ import javax.xml.bind.annotation.XmlTransient;
         @NamedQuery(name = Item.FIND_ALL, query = "SELECT i FROM Item i")
 })
 @XmlRootElement
+@Getter
+@Setter
 public class Item {
 
     // ======================================
@@ -30,6 +36,7 @@ public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Setter(value = AccessLevel.NONE)
     private Long id;
     @Column(nullable = false, length = 30)
     @NotNull
@@ -67,54 +74,6 @@ public class Item {
         this.unitCost = unitCost;
         this.imagePath = imagePath;
         this.product = product;
-        this.description = description;
-    }
-
-    // ======================================
-    // =         Getters & setters          =
-    // ======================================
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Float getUnitCost() {
-        return unitCost;
-    }
-
-    public void setUnitCost(Float unitCost) {
-        this.unitCost = unitCost;
-    }
-
-    public String getImagePath() {
-        return imagePath;
-    }
-
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
     }
 
